@@ -1,0 +1,38 @@
+#include<stdio.h>
+void digitsss(int n)
+{
+    if(n==0)
+    {
+        printf(0 );
+    }
+    int digits[100];
+    int count=0;
+    while(n>0)
+    {
+        digits[count++]=n%10;
+        n/=10;
+    }
+    for(int i=count-1;i>=0;--i)
+    {
+        printf(" %d",digits[i]);
+    }
+}
+void extract(int n,int a[])
+{
+    for(int i=0;i<n;i++)
+    {
+        digitsss(a[i]);
+    }
+}
+int main()
+{
+    int n;
+    printf("enter the number of elemnts :");
+    scanf("%d",&n);
+    int a[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    extract(n,a);
+}
