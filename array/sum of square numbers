@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdbool.h>
+bool judgeSquareSum(int c) {
+    if(c<=pow(2,31)-1 && c>=0)
+    {
+    for(long long i=0;i*i<=c;i++)
+    {   long long r=c-i*i;
+        long long sr =(long long)sqrt(r);
+        if(sr*sr==r)
+        {
+            return true;
+        }
+    }
+    }
+    return false;
+    
+}
+int main()
+{
+int c;
+scanf("%d",c);
+printf(judgeSquareSum(c))
+}
