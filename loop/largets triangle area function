@@ -1,0 +1,25 @@
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+double calculateTriangleArea(int* p1, int* p2, int* p3) {
+    return fabs(0.5 * (p1[0] * (p2[1] - p3[1]) + p2[0] * (p3[1] - p1[1]) + p3[0] * (p1[1] - p2[1])));
+}
+
+double largestTriangleArea(int** points, int pointsSize, int* pointsColSize) {
+    double maxArea = 0.0;
+    
+    for (int i = 0; i < pointsSize; i++) {
+        for (int j = i + 1; j < pointsSize; j++) {
+            for (int k = j + 1; k < pointsSize; k++) {
+                double area = calculateTriangleArea(points[i], points[j], points[k]);
+
+                if (area > maxArea) {
+                    maxArea = area;
+                }
+            }
+        }
+    }
+    
+    return maxArea;
+}
