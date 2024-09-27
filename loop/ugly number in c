@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int divideByGreatestFactor(int n, int factor) {
+    while (n % factor == 0) {
+        n = n / factor;
+    }
+    return n;
+}
+
+int isUgly(int n) {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+
+    n = divideByGreatestFactor(n, 2);
+    n = divideByGreatestFactor(n, 3);
+    n = divideByGreatestFactor(n, 5);
+    return (n == 1) ? 1 : 0;
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (isUgly(num)) {
+        printf("%d is an ugly number.\n", num);
+    } else {
+        printf("%d is not an ugly number.\n", num);
+    }
+
+    return 0;
+}
